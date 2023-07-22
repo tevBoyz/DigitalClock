@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Clock</title>
+<style>
+@font-face{
+ font-family:'digital-clock-font';
+ src: url('digital-7.ttf');
+}
+body {
+  font-family: sans-serif;
+  background-color: #f5f5f5;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clock {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family:'digital-clock-font'
+}
+.hour {
+  font-size: 60px;
+  color: #000;
+}
+.minute {
+  font-size: 55px;
+  color: #000;
+}
+.second {
+  font-size: 45px;
+  color: #000;
+  padding-top: 10px;
+}
+</style>
+</head>
+<body>
+<div class="clock">
+  <div class="hour">00:</div>
+  <div class="minute">00:</div>
+  <div class="second">00</div>
+</div>
+<script>
+    setInterval(function() {
+      var now = new Date();
+      var hour = now.getHours();
+      var minute = now.getMinutes();
+      var second = now.getSeconds();
+      document.querySelector('.hour').innerHTML = hour + ":";
+      document.querySelector('.minute').innerHTML = minute + ":";
+    if(second < 10)
+        document.querySelector('.second').innerHTML = "0" + second;
+    else
+        document.querySelector('.second').innerHTML = second;
+    }, 1000);
+    </script>
+    
+</body>
+</html>
